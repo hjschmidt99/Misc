@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html><head><title>Web Radio</title>
+
+<script language="JavaScript">
+const urls = {
+    "hr3": "https://dispatcher.rndfnk.com/hr/hr3/live/mp3/high",
+    "youfm": "https://dispatcher.rndfnk.com/hr/youfm/live/mp3/high", 
+    "swr3": "https://liveradio.swr.de/sw282p3/swr3/play.mp3",
+    "br3": "https://dispatcher.rndfnk.com/br/br3/live/mp3/mid",
+    "80s80s": "http://streams.80s80s.de/web/mp3-192/streams.80s80s.de/",
+    "90s90s": "http://streams.90s90s.de/main/mp3-192/streams.90s90s.de/"
+};
+
+const tpl = '<input type="button" class="btn" value="NNN" onclick="tune(\'NNN\')">\n'
+
+window.onload = function() {
+    let s = "";
+    let n = 0;
+    for (const x in urls) {
+        console.log(x);
+        s += tpl.replaceAll("NNN", x);
+        console.log(s);
+        if (n++ % 2 == 1) s += "<br>";
+    }
+    div1.innerHTML = s;
+    player.volume = 0.2;
+}
+
+function tune(name) {
+	var p = document.getElementById("player");
+	console.log(name);
+	document.title = name;
+	var act = document.getElementById("act");
+    act.innerHTML = name;
+	p.src = urls[name];
+	p.play();
+}
+
+</script>
+
+<style>
+* { font-family:arial;font-size:12pt; }
+.max { width:100%; }
+.btn { width:130px; height:40px; margin:3px; }
+div { text-align: center; }
+body { overflow:auto; background-color:black; }
+h2 { color: white; }
+</style>
+</head>
+
+<body>
+<div><h2>WebRadio</h2></div>
+<div id="div1"></div>
+<div><h2 id="act"></h2></div>
+<audio id="player" controls autoplay="autoplay" class="max">
+    <source id="asrc" src="" type="audio/mp3"/>
+</audio>
+</body></html>

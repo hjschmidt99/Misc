@@ -1,2 +1,2 @@
 # Misc
-msic stuff
+misc stuff
