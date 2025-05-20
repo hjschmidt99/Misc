@@ -11,7 +11,7 @@ const urls = {
     "90s90s": "http://streams.90s90s.de/main/mp3-192/streams.90s90s.de/"
 };
 
-const tpl = '<input type="button" class="btn" value="NNN" onclick="tune(\'NNN\')">\n'
+const tpl = '<input type="button" class="btn" value="NNN" onclick="tune(event)">\n'
 
 window.onload = function() {
     let s = "";
@@ -26,7 +26,8 @@ window.onload = function() {
     player.volume = 0.2;
 }
 
-function tune(name) {
+function tune(event) {
+    var name = event.target.value;
 	console.log(name);
 	var act = document.getElementById("act");
     act.innerHTML = name;
