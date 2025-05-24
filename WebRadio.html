@@ -25,7 +25,6 @@ window.onload = function() {
     for (const x in urls) {
         console.log(x);
         s += tpl.replaceAll("NNN", x);
-        console.log(s);
         if (n++ % 2 == 1) s += "<br>";
     }
     div1.innerHTML = s;
