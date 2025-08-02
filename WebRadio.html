@@ -45,6 +45,11 @@ function tune(event) {
 	p.play();
 }
 
+function handleKey(event) {
+    console.log(event.code);
+	let act = document.getElementById("act");
+    act.innerHTML = event.code;
+}
 </script>
 
 <style>
@@ -57,7 +62,7 @@ h2 { color: white; text-align: center; }
 </style>
 </head>
 
-<body>
+<body onkeypress="handleKey(event)">
 <h2>WebRadio</h2>
 <div id="div1"></div>
 <h2 id="act">select radio</h2>
