@@ -1,4 +1,13 @@
 @echo off
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Simple Backup Tool
+:: Edit backup.txt to add folders to backup.
+:: The prodess back.cmd will 
+:: - create a folder for today's backup
+:: - zip each folder in backup.txt
+:: Make sure that everything in backup.txt is not in use!
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 set t0=%time%
 
 :: change working dir
@@ -6,6 +15,7 @@ set t0=%time%
 cd %~p0
 
 type Backup.txt
+echo .
 echo ----------------------------
 echo Close file blocking programs
 echo ----------------------------
